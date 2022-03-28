@@ -19,12 +19,13 @@ const partition = (arr, pivot) => {
     
 }
 
-const medianOfMedians = (arr) => {
+// recebe um array de números e retorna seu k-esimo elemento
+const medianOfMedians = (arr, k) => {
     if (!arr || arr.length === 0) {
         return;
     }
 
-    return selectPivot(arr, Math.floor(arr.length / 2));
+    return selectPivot(arr, k);
 }
 
 const selectPivot = (arr, k) => {
@@ -68,4 +69,4 @@ const selectPivot = (arr, k) => {
 }
 
 export default medianOfMedians;
-//const pivot = medianOfMedians([1, 2, 3, 4, 5, 1000, 8, 9, 99]);
+//const pivot = medianOfMedians([1, 2, 3, 4, 5, 1000, 8, 9, 99], 5);
