@@ -1,23 +1,60 @@
-import logo from './logo.svg';
+import React, { useRef, useState } from "react";
 import './App.css';
+import Keyboard from 'react-simple-keyboard'
+import "react-simple-keyboard/build/css/index.css";
 
 function App() {
+  const [input, setInput] = useState("");
+  const [layout, setLayout] = useState("default");
+  const keyboard = useRef();
+
+  const onChange = input => {
+    setInput(input);
+    console.log("Input changed", input);
+  };
+
+  const handleShift = () => {
+    const newLayoutName = layout === "default" ? "shift" : "default";
+    setLayout(newLayoutName);
+  };
+
+  const onKeyPress = button => {
+    console.log("Button pressed", button);
+
+    /**
+     * If you want to handle the shift and caps lock buttons
+     */
+    if (button === "{shift}" || button === "{lock}") handleShift();
+  };
+
+  const onChangeInput = event => {
+    const input = event.target.value;
+    setInput(input);
+    keyboard.current.setInput(input);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+        <p className="header-title">
+          TERMO
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <body>
+        <div className="content">
+          <input id="partitioned" type="text" maxLength="5" value={input} onChange={onChangeInput} />
+        </div>
+      </body>
+      <footer>
+        <div className="keyboard">
+          <Keyboard
+            keyboardRef={r => (keyboard.current = r)}
+            layoutName={layout}
+            onChange={onChange}
+            onKeyPress={onKeyPress}
+          />
+        </div>
+      </footer>
     </div>
   );
 }
