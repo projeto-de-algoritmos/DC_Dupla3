@@ -2,15 +2,39 @@ import React, { useRef, useState } from "react";
 import './App.css';
 import Keyboard from 'react-simple-keyboard'
 import "react-simple-keyboard/build/css/index.css";
+import mergeSort from "./components/mergeSort";
+import medianOfMedians from "./components/medianOfMedians";
 
 function App() {
   const [input, setInput] = useState("");
   const [layout, setLayout] = useState("default");
+  const [mergeWord, setMergeWord] = useState("");
+  const [medianChar, setMedianChar] = useState("");
+  const [showMedian, setShowMedian] = useState(false);
+  const [showMerge, setShowMerge] = useState(false);
+  const [positionMedian, setPositionMedian] = useState(0);
   const keyboard = useRef();
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (showMedian) {
+      const arr = input.split('');
+      const median = medianOfMedians(arr, positionMedian);
+
+      setMedianChar(median);
+    }
+  };
+
+  const mergeAction = () => {
+    const arr = input.split('')
+    const merge = mergeSort(arr).join('');
+
+    setMergeWord(merge);
+
+  }
 
   const onChange = input => {
     setInput(input);
-    console.log("Input changed", input);
   };
 
   const handleShift = () => {
@@ -19,11 +43,6 @@ function App() {
   };
 
   const onKeyPress = button => {
-    console.log("Button pressed", button);
-
-    /**
-     * If you want to handle the shift and caps lock buttons
-     */
     if (button === "{shift}" || button === "{lock}") handleShift();
   };
 
@@ -41,8 +60,53 @@ function App() {
         </p>
       </header>
       <body>
-        <div className="content">
-          <input id="partitioned" type="text" maxLength="5" value={input} onChange={onChangeInput} />
+        <div>
+          <div className="action">
+            <input id="partitioned" type="text" maxLength="5" value={input} onChange={onChangeInput} />
+          </div>
+          {
+            !showMedian && !showMerge ?
+              <div className="action">
+
+                <div className="action">
+                  <button className="graph-button mrg-right-10" type="button" onClick={() => { setShowMerge(true); mergeAction() }}>
+                    Ordenar Vetor
+                  </button>
+                  <button className="graph-button mrg-right-10" type="button" onClick={() => setShowMedian(true)}>
+                    Encontrar k-ésimo elemento (Sem precisar ordenar)
+                  </button>
+                </div>
+
+              </div>
+              : null
+          }
+          {
+            showMedian ?
+              <div>
+                <form onSubmit={onSubmit}>
+                  <div className="action">
+                    <input type="number" className="node-input" onChange={(e) => setPositionMedian(e.target.value)} max="4" min='0' />
+                  </div>
+
+                  <div className="action">
+                    <button className="graph-button mrg-top-20" type="submit">
+                      Buscar
+                    </button>
+                  </div>
+                </form>
+              </div>
+              : null
+          }
+          {
+            mergeWord != '' ?
+              <div><span>{mergeWord}</span></div>
+              : null
+          }
+          {
+            medianChar != '' ?
+              <div><span>{medianChar}</span></div>
+              : null
+          }
         </div>
       </body>
       <footer>

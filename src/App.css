@@ -52,11 +52,6 @@ footer {
   width: 90%;
 }
 
-.content {
-  display: flex;
-  justify-content: center;
-}
-
 .picker {
   display: flex;
   justify-content: center;
