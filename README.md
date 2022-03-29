@@ -38,3 +38,6 @@ Para rodar o projeto
 O projeto estará rodando na porta ```localhost:3000```
 
 ## Vídeo
+
+[Link Youtube](https://youtu.be/24xZbfQRLkg)
+[Link Drive - Baixar](https://drive.google.com/file/d/1NmCTEtPo7fGMNkn9rjQQtxr1YLUcP2Is/view?usp=sharing)
