@@ -1,45 +1,40 @@
-**!! Atenção: Renomeie o seu repositório para (Tema)_(NomeDoProjeto). !!** 
+# Termo
 
-Temas:
- - Grafos1
- - Grafos2
- - PD
- - D&C
- - Greed
- - Final 
- 
- **!! *Não coloque os nomes dos alunos no título do repositório*. Exemplo de título correto: Grafos2_Labirinto-do-Minotauro !!**
- 
- (Apague essa seção)
-
-# NomedoProjeto
-
-**Número da Lista**: X<br>
-**Conteúdo da Disciplina**: XXXXXXXXXX<br>
+Número da Lista: 3<br>
+Conteúdo da Disciplina: Dividir e Conquistar<br>
 
 ## Alunos
-|Matrícula | Aluno |
+|Matrícula | Aluna |
 | -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 17/0111288 |  Micaella Gouveia |
+| 17/0114333  |  Sofia Patrocínio |
 
 ## Sobre 
-Descreva os objetivos do seu projeto e como ele funciona. 
+O projeto tem como objetivo a implementação dos algoritmos de dividir e conquistar, sendo eles o Merge Sort e o Mediana das Medianas. O usuário pode escrever um termo e escolher qual dos algoritmos usar. Caso escolha ordenar o termo, o algoritmo Merge Sort será acionado. Caso escolha encontrar o k-ésimo elemento do termo ordenado, o algoritmo Mediana das Medianas será acionado e retornará o elemento da posição escolhida.
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
+![Screenshot from 2022-03-28 22-49-31](https://user-images.githubusercontent.com/38709421/160516488-11d41c9a-b07b-459d-b096-25913a85fe47.png)
+![Screenshot from 2022-03-28 22-49-47](https://user-images.githubusercontent.com/38709421/160516489-913d01fc-a8d2-4d65-809d-9dc30590229a.png)
+![Screenshot from 2022-03-28 22-50-17](https://user-images.githubusercontent.com/38709421/160516493-2a829a52-1113-47c7-98c9-775b802c0761.png)
+
 
 ## Instalação 
-**Linguagem**: xxxxxx<br>
-**Framework**: (caso exista)<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
+Linguagem: Javascript<br>
+Framework: ReactJS<br>
+
+Pré-requisitos:
+* NodeJS
+* ReactJS
+* Yarn
 
 ## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
+É necessário instalar suas dependências usando o comando
 
-## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
+```yarn install```
 
+Para rodar o projeto
+```yarn start```
 
+O projeto estará rodando na porta ```localhost:3000```
 
-
+## Vídeo
