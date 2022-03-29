@@ -55,9 +55,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p className="header-title">
+        <a className="header-title" href=".">
           TERMO
-        </p>
+        </a>
       </header>
       <body>
         <div>
@@ -66,14 +66,14 @@ function App() {
           </div>
           {
             !showMedian && !showMerge ?
-              <div className="action">
+              <div className="action mrg-top-25">
 
                 <div className="action">
                   <button className="graph-button mrg-right-10" type="button" onClick={() => { setShowMerge(true); mergeAction() }}>
-                    Ordenar Vetor
+                    Ordenar Termo
                   </button>
                   <button className="graph-button mrg-right-10" type="button" onClick={() => setShowMedian(true)}>
-                    Encontrar k-ésimo elemento (Sem precisar ordenar)
+                    Encontrar k-ésimo Elemento Ordenado
                   </button>
                 </div>
 
@@ -85,11 +85,11 @@ function App() {
               <div>
                 <form onSubmit={onSubmit}>
                   <div className="action">
-                    <input type="number" className="node-input" onChange={(e) => setPositionMedian(e.target.value)} max="4" min='0' />
+                    <input type="number" className="number-input mrg-top-25" onChange={(e) => setPositionMedian(e.target.value)} max="4" min='0' />
                   </div>
 
                   <div className="action">
-                    <button className="graph-button mrg-top-20" type="submit">
+                    <button className="graph-button mrg-top-25" type="submit">
                       Buscar
                     </button>
                   </div>
@@ -99,12 +99,26 @@ function App() {
           }
           {
             mergeWord != '' ?
-              <div><span>{mergeWord}</span></div>
+              <div>
+                <div className="action">
+                  <span className="text mrg-top-130">Termo Ordenado:</span>
+                </div>
+                <div className="action">
+                  <span className="result">{mergeWord}</span>
+                </div>
+              </div>
               : null
           }
           {
             medianChar != '' ?
-              <div><span>{medianChar}</span></div>
+              <div>
+                <div className="action">
+                  <span className="text mrg-top-130">O seu elemento é</span>
+                </div>
+                <div className="action">
+                  <span className="result">{medianChar}</span>
+                </div>
+              </div>
               : null
           }
         </div>
